@@ -1,61 +1,43 @@
-# play-scala-starter-example
+# Play Hello World Web Tutorial for Scala
 
-This is a starter application that shows how Play works.  Please see the documentation at <https://www.playframework.com/documentation/latest/Home> for more details.
+To follow the steps in this tutorial, you will need the correct version of Java and sbt. The tutorial requires:
 
-## Running
+* Java Software Developer's Kit (SE) 11 or higher
+* sbt 1.9.6 or higher.
 
-Run this using [sbt](http://www.scala-sbt.org/).  If you downloaded this project from <http://www.playframework.com/download> then you'll find a prepackaged version of sbt in the project directory:
+To check your Java version, enter the following in a command window:
 
 ```bash
-sbt run
+java -version
 ```
 
-And then go to <http://localhost:9000> to see the running web application.
+To check your sbt version, enter the following in a command window:
 
-There are several demonstration files available in this template.
+```bash
+sbt sbtVersion
+```
+
+If you do not have the required versions, follow these links to obtain them:
+
+* [Java SE](https://adoptium.net/)
+* [sbt](http://www.scala-sbt.org/download.html)
+
+## Build and run the project
+
+This example Play project was created from a seed template. It includes all Play components and an Pekko HTTP server. The project is also configured with filters for Cross-Site Request Forgery (CSRF) protection and security headers.
+
+To build and run the project:
+
+1. Use a command window to change into the example project directory, for example: `cd play-scala-hello-world-tutorial`
+
+2. Build the project. Enter: `sbt run`. The project builds and starts the embedded HTTP server. Since this downloads libraries and dependencies, the amount of time required depends partly on your connection's speed.
+
+3. After the message `Server started, ...` displays, enter the following URL in a browser: <http://localhost:9000>
+
+The Play application responds: `Welcome to the Hello World Tutorial!`
 
 ## Server backend
 
 By default, the project uses the Pekko HTTP Server backend. To switch to the Netty Server backend, enable the `PlayNettyServer` sbt plugin in the `build.sbt` file.
 In the `build.sbt` of this project, you'll find a commented line for this setting; simply uncomment it to make the switch.
 For more detailed information, refer to the Play Framework [documentation](https://www.playframework.com/documentation/3.0.x/Server).
-
-## Controllers
-
-- `HomeController.scala`:
-
-  Shows how to handle simple HTTP requests.
-
-- `AsyncController.scala`:
-
-  Shows how to do asynchronous programming when handling a request.
-
-- `CountController.scala`:
-
-  Shows how to inject a component into a controller and use the component when
-  handling requests.
-
-## Components
-
-- `Module.scala`:
-
-  Shows how to use Guice to bind all the components needed by your application.
-
-- `Counter.scala`:
-
-  An example of a component that contains state, in this case a simple counter.
-
-- `ApplicationTimer.scala`:
-
-  An example of a component that starts when the application starts and stops
-  when the application stops.
-
-## Filters
-
-- `Filters.scala`:
-
-  Creates the list of HTTP filters used by your application.
-
-- `ExampleFilter.scala`:
-
-  A simple filter that adds a header to every response.
